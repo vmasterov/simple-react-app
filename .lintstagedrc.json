@@ -1,0 +1,4 @@
+{
+  "*.{ts,tsx}": ["prettier --write --ignore-unknown ./src", "eslint --cache ./src --fix"],
+  "*.scss": ["postcss --replace", "prettier --write --ignore-unknown ./src"]
+}

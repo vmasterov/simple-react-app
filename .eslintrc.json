@@ -1,0 +1,80 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "plugin:@typescript-eslint/recommended", "plugin:sonarjs/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "react-hooks", "sonarjs"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules"]
+      }
+    }
+  },
+  "rules": {
+    "sonarjs/no-duplicate-string": "warn",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/no-empty-function": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["off"],
+    "import/prefer-default-export": "off",
+    "newline-before-return": "error",
+    "newline-after-var": ["error", "always"],
+    "max-len": ["error", { "code": 150, "ignoreComments": true, "ignoreUrls": true, "ignoreRegExpLiterals": true }],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": ["block-like", "if"], "next": "*" },
+      { "blankLine": "always", "prev": "*", "next": ["block-like", "if"] },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"] }
+    ],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
+    "react/jsx-no-constructed-context-values": "warn",
+    "react/no-unstable-nested-components": ["error", { "allowAsProps": true }],
+    "react/prop-types": "off",
+    "react/require-default-props": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-underscore-dangle": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/stories.*"],
+      "rules": {
+        "import/no-anonymous-default-export": "off",
+        "react/jsx-props-no-spreading": 0
+      }
+    },
+    {
+      "files": ["*.test.tsx", "*.test.ts", "tests.tsx", "tests.ts"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "global-require": 0,
+        "@typescript-eslint/no-var-requires": 0
+      }
+    }
+  ]
+}
