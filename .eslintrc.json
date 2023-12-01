@@ -3,7 +3,14 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "plugin:@typescript-eslint/recommended", "plugin:sonarjs/recommended", "prettier"],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:sonarjs/recommended",
+    "prettier",
+    "plugin:react/jsx-runtime"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -36,18 +43,10 @@
       }
     ],
     "no-shadow": "off",
+    "no-console": "off",
     "@typescript-eslint/no-shadow": ["off"],
     "import/prefer-default-export": "off",
-    "newline-before-return": "error",
-    "newline-after-var": ["error", "always"],
     "max-len": ["error", { "code": 150, "ignoreComments": true, "ignoreUrls": true, "ignoreRegExpLiterals": true }],
-    "padding-line-between-statements": [
-      "error",
-      { "blankLine": "always", "prev": ["block-like", "if"], "next": "*" },
-      { "blankLine": "always", "prev": "*", "next": ["block-like", "if"] },
-      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
-      { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"] }
-    ],
     "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
     "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
     "react/jsx-no-constructed-context-values": "warn",
@@ -56,7 +55,8 @@
     "react/require-default-props": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
   },
   "overrides": [
     {
