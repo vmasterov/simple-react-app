@@ -1,0 +1,63 @@
+h1 {
+  margin: 0;
+}
+
+button {
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #e8e8e8;
+  transition: 0.25s;
+  padding: 10px 12px;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: #e0dfdf;
+  }
+}
+
+a {
+  color: #000000;
+
+  &:hover {
+    text-decoration: none;
+    color: #000000;
+  }
+}
+
+.FactBlockWrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.FactBlock {
+  width: 600px;
+  margin: auto;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 18px 24px 24px;
+  box-shadow: 0 0 14px 2px #0000000f;
+}
+
+.Head {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.Body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 0;
+}
+
+.Caption {
+  flex: 15%;
+  font-weight: bold;
+}
+
+.Text {
+  flex: 85%;
+}

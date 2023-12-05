@@ -1,4 +1,4 @@
-import 'App.css';
+import 'App.module.css';
 import MainPage from 'pages/MainPage';
 
 function App() {
