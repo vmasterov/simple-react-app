@@ -1,0 +1,56 @@
+version: '3.6'
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: app
+    pull_policy: never
+    container_name: app
+    restart: unless-stopped
+    networks:
+      - app-network
+      
+  webserver:
+    image: nginx:latest
+    container_name: webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - web-root:/var/www/html
+      - ./nginx-conf:/etc/nginx/conf.d
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - ./dhparam:/etc/ssl/certs
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - web-root:/var/www/html
+    depends_on:
+      - webserver
+    command: certonly --webroot --webroot-path=/var/www/html --email xiii555iiix@yandex.ru --agree-tos --no-eff-email --force-renewal -d vm-notes.ru -d www.vm-notes.ru
+      
+volumes:
+  certbot-etc:
+  certbot-var:
+  web-root:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/vlad/simple-react-app/
+      o: bind
+
+networks:
+  app-network:
+    driver: bridge
