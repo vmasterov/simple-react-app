@@ -38,8 +38,4 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           script: |
-            cd /home/vlad/simple-react-app/ |
-            docker compose stop app |
-            docker compose rm -f app |
-            docker pull vmasterov/simple-react-app:latest |
-            docker compose up -d --force-recreate --no-deps app
+            cd /home/vlad/simple-react-app/;docker compose stop app;docker compose rm -f app;docker rmi vmasterov/simple-react-app;docker compose up -d --force-recreate --no-deps app
