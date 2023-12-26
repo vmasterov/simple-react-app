@@ -45,7 +45,7 @@ export default function MainPage() {
                 </a>
               </div>
             </div>
-            <div className={styles.Version}>v.1.0.1</div>
+            <div className={styles.Version}>v.1.0.2</div>
           </>
         )}
       </div>
