@@ -40,6 +40,6 @@ jobs:
           script: |
             cd /home/vlad/simple-react-app/ |
             docker compose stop app |
-            docker rm app |
+            docker compose rm -f app |
             docker pull vmasterov/simple-react-app:latest |
             docker compose up -d --force-recreate --no-deps app
