@@ -2,11 +2,7 @@ version: '3.6'
 services:
 
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: app
-    pull_policy: never
+    image: vmasterov/simple-react-app:latest
     container_name: app
     restart: unless-stopped
     networks:
