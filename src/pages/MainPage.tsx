@@ -32,18 +32,21 @@ export default function MainPage() {
           </button>
         </div>
         {fact.text && (
-          <div className={styles.Body}>
-            <div className={styles.Caption}>Fact:</div>
-            <div className={styles.Text}>{fact.text}</div>
-            <div className={styles.Caption}>Type:</div>
-            <div className={styles.Text}>{fact.type}</div>
-            <div className={styles.Caption}>Source:</div>
-            <div className={styles.Text}>
-              <a href={`https://${fact.source}`} target="_blank" rel="noreferrer">
-                {fact.source}
-              </a>
+          <>
+            <div className={styles.Body}>
+              <div className={styles.Caption}>Fact:</div>
+              <div className={styles.Text}>{fact.text}</div>
+              <div className={styles.Caption}>Type:</div>
+              <div className={styles.Text}>{fact.type}</div>
+              <div className={styles.Caption}>Source:</div>
+              <div className={styles.Text}>
+                <a href={`https://${fact.source}`} target="_blank" rel="noreferrer">
+                  {fact.source}
+                </a>
+              </div>
             </div>
-          </div>
+            <div className={styles.Version}>v.1.0.0</div>
+          </>
         )}
       </div>
     </div>
