@@ -53,6 +53,12 @@ a {
   gap: 10px 0;
 }
 
+.Version {
+  color: #e0dfdf;
+  font-size: 12px;
+  text-align: right;
+}
+
 .Caption {
   flex: 15%;
   font-weight: bold;
